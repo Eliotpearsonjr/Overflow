@@ -14,9 +14,9 @@ import Foundation
 // records: displays record highs and lows of water intake throught the users' history
 enum Menu_Section: Identifiable, CaseIterable, Hashable {
     
-    case todays_log
-    case aqua_graph
-    case records
+    case todays_log     // shows the water intake of the current day as logged by the user
+    case aqua_graph     // a page visualizing user's water intake data
+    case records        // undecided on what this page will be yet
     
     var id: String {
         switch self {
@@ -42,6 +42,7 @@ enum Menu_Section: Identifiable, CaseIterable, Hashable {
         }
     }
     
+    // for displaying the icons associated with each section
     var icon_name: String {
         switch self {
             case .todays_log:

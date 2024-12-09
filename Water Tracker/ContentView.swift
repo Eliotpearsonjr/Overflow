@@ -25,6 +25,7 @@ struct ContentView: View {
                 Data_Point_List_View(title: "Today's Log", data_points: $all_data_points)
             case .aqua_graph:
                 Text("This is the aqua graph page")
+                Text("There will be a weekly graph and a monthly graph dispalyed here")
             case .records:
                 Text("This is the records page")
             case nil:
