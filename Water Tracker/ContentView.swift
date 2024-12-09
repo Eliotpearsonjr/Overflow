@@ -8,17 +8,41 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @State private var selection: Menu_Section? = Menu_Section.todays_log
+    
+    // test variable
+    @State private var all_data_points = Data_Point.examples()
+    
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        NavigationSplitView {
+            Sidebar_View(selection: $selection)
+            
+        } detail: {
+            switch selection {
+            case .todays_log:
+                Data_Point_List_View(title: "Today's Log", data_points: $all_data_points)
+            case .aqua_graph:
+                Text("This is the aqua graph page")
+            case .records:
+                Text("This is the records page")
+            case nil:
+                Text("none")
+            }
         }
-        .padding()
     }
 }
 
 #Preview {
     ContentView()
 }
+
+
+//VStack {
+//    Image(systemName: "globe")
+//        .imageScale(.large)
+//        .foregroundStyle(.tint)
+//    Text("Hello, world!")
+//}
+//.padding()
